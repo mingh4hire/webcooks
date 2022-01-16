@@ -1,0 +1,58 @@
+<script>
+    function doit() {
+        alert('asfdafds');
+        document.querySelector('#data').innerHTML = 'asdfsda';
+    }
+    // xhr = new XMLHttpRequest();
+    // xhr.url = 'https://jsonplaceholder.typicode.com/albums';
+    // xhr.method = 'GET';
+    // xhr.open('GET', 'https://jsonplaceholder.typicode.com/albums');
+    // xhr.send();
+    // xhr.onreadystatechange = doit;
+    // fetch('http://localhost:1011/post', { a: 23432 }).then(x => {
+    //     console.log(x);
+    //     console.log(x.json().then(y => console.log(y)));
+    // });
+    function login() {
+        fetch('http://localhost/login', {
+            'method': "POST",
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+
+
+            body: JSON.stringify({ password: "123123" })
+        }).then(x => {
+            console.log(x);
+            console.log('x is ', x);
+            x.json().then(y => {
+                console.log(y);
+                alert(y.message);
+
+            });
+
+        });
+
+    }
+</script>
+Hi What's up
+
+Let's log in
+<form id="data">
+    <table>
+        <tr>
+            <th>UserName</th>
+            <td><input /></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input id="password" /></td>
+        </tr>
+        <tr>
+            <td colspan=2>asdf
+                <button onclick="login()" type="reset">lasdfsadfogin</button>
+            </td>
+        </tr>
+    </table>
+</form>
